@@ -46,15 +46,15 @@ public class BlackjackGame {
 
         } else if (value <= 15) {
             Random rand = new Random();
-            int willBet = rand.nextInt(2) + 1;
-            if (willBet == 1) {
+            int willTwist = rand.nextInt(2) + 1;
+            if (willTwist == 1) {
                 Card card = dealer.dealCard();
                 player.addCard(card);
             }
         } else if(value <= 17) {
             Random rand = new Random();
-            int willBet = rand.nextInt(4) + 1;
-            if (willBet == 1) {
+            int willTwist = rand.nextInt(4) + 1;
+            if (willTwist == 1) {
                 Card card = dealer.dealCard();
                 player.addCard(card);
             }
@@ -74,22 +74,31 @@ public class BlackjackGame {
     public Playerable checkWinner() {
         int count = 0;
         int[] scores = new int[players.size()];
+        ArrayList<Playerable> potWinners = new ArrayList<Playerable>();
+        Playerable winner = null;
 
-        for (Playerable player: players) {
+        for (Playerable player : players) {
             scores[count] = player.getHandValue();
-            count ++;
+            count++;
         }
 
         int max = Integer.MIN_VALUE;
-        for(int i = 0; i < scores.length; i++) {
-            if(scores[i] > max) {
+        for (int i = 0; i < scores.length; i++) {
+            if (scores[i] > max) {
                 max = scores[i];
-                }
             }
+        }
 
+        for (Playerable player : players) {
+            if (max == player.getHandValue()) {
+                potWinners.add(player);
+            }
+        }
 
-        if (player instanceof Dealer) {
-
+        for (Playerable player : potWinners) {
+            if (player instanceof Dealer) {
+                winner = player;
+            } else ()
         }
     }
 
