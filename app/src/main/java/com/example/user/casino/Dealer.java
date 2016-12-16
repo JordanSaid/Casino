@@ -1,9 +1,11 @@
 package com.example.user.casino;
 
+import java.util.Random;
+
 /**
  * Created by user on 15/12/2016.
  */
-public class Dealer {
+public class Dealer implements Playerable{
 
     private String name;
     private Hand hand;
@@ -31,8 +33,23 @@ public class Dealer {
         return this.deck;
     }
 
-    public void setPurse(Deck deck) {
+    public void setDeck(Deck deck) {
         this.deck = deck;
     }
+
+    public Card dealCard(){
+        return deck.dealCard();
+    }
+
+    public void addCard(Card card) {
+        hand.addCard(card);
+    }
+
+    public int bet() {
+        Random rand = new Random();
+        int bet = rand.nextInt(50 - 10) + 10;
+        return bet;
+    }
+
 
 }

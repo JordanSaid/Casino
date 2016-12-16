@@ -20,10 +20,13 @@ public class Deck {
 
     public void addCard(Card card){
         deck.add(card);
+
     }
 
     public Card dealCard(){
-        return deck.remove(0);
+        Card card = deck.get(0);
+        deck.remove(0);
+        return card;
     }
 
     public int cardCount(){

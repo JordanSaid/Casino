@@ -15,8 +15,6 @@ public class Hand {
         this.hand = new ArrayList<Card>();
     }
 
-
-
     public void addCard(Card card) {
         hand.add(card);
     }
@@ -25,7 +23,7 @@ public class Hand {
         hand.clear();
     }
 
-    public Card checkCard(int index){
+    public Card showCard(int index){
         return (Card)hand.get(index);
     }
 

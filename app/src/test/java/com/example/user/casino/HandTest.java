@@ -64,7 +64,7 @@ public class HandTest {
     public void canCheckCard() {
         hand.addCard(card);
         hand.addCard(card2);
-        Card checkedCard = hand.checkCard(1);
+        Card checkedCard = hand.showCard(1);
         assertEquals("FIVE of DIAMONDS", checkedCard.toString());
     }
 
