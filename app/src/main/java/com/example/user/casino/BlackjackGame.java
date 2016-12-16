@@ -26,36 +26,68 @@ public class BlackjackGame {
 
     public void dealCardsToEachPlayer() {
         for (int i = 0; i < 2; i++) {
-            for (Playerable player: players) {
+            for (Playerable player : players) {
                 Card card = dealer.dealCard();
-
-                if (player instanceof Player) {
-                    ((Player) player).addCard(card);
-                } else dealer.addCard(card);
+                player.addCard(card);
             }
         }
     }
 
-    public void playerTwist(Playerable player) {
+    public void twist(Playerable player) {
         Card card = dealer.dealCard();
-        if (player instanceof Player) {
-            ((Player) player).addCard(card);
-        } else dealer.addCard(card);
+        player.addCard(card);
     }
 
-    public void aiTwist(Playerable player) {
-        Random rand = new Random();
-        int willBet = rand.nextInt(1);
-        if (willBet == 1) {
+    public void aiWillTwist(Playerable player) {
+        int value = player.getHandValue();
+        if (value < 12) {
             Card card = dealer.dealCard();
-            ((Player) player).addCard(card);
-        } else return;
+            player.addCard(card);
+
+        } else if (value <= 15) {
+            Random rand = new Random();
+            int willBet = rand.nextInt(2) + 1;
+            if (willBet == 1) {
+                Card card = dealer.dealCard();
+                player.addCard(card);
+            }
+        } else if(value <= 17) {
+            Random rand = new Random();
+            int willBet = rand.nextInt(4) + 1;
+            if (willBet == 1) {
+                Card card = dealer.dealCard();
+                player.addCard(card);
+            }
+        }
     }
 
-
-    public void findWinner() {
-
+    public void dealerWillTwist() {
+        Hand hand = dealer.getHand();
+        int value = hand.getValue();
+        if (value < 17) {
+            Card card = dealer.dealCard();
+            dealer.addCard(card);
+        }
     }
 
+//    public void playRound() {
+//
+//    }
+
+
+
+    public Playerable findWinner() {
+        int count = 0;
+        int[] scores = new int[players.size()];
+
+        for (Playerable player: players) {
+            scores[count] = player.getHandValue();
+            count ++;
+            
+        }
+    }
+//    if (player instanceof Player)
+//    if (value )
+//            if ((a >= b) && (a >= c) && (a >= d))
 
 }

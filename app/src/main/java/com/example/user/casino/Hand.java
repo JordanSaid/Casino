@@ -27,12 +27,15 @@ public class Hand {
         return (Card)hand.get(index);
     }
 
-    public Card playCard(int index) {
-        return hand.remove(index);
-    }
-
     public int cardCount() {
         return hand.size();
+    }
+
+    public int getValue() {
+        int count = 0;
+        for (Card card: hand) {
+            count += card.getValue();
+        } return count;
     }
 
 }

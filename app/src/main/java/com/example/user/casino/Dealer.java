@@ -51,5 +51,10 @@ public class Dealer implements Playerable{
         return bet;
     }
 
+    public int getHandValue() {
+        Hand hand = getHand();
+        return hand.getValue();
+    }
+
 
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by user on 15/12/2016.
  */
-public class Player implements Playerable{
+abstract class Player implements Playerable{
 
     private String name;
     public Hand hand;
@@ -60,6 +60,11 @@ public class Player implements Playerable{
 
     public void addCard(Card card) {
         hand.addCard(card);
+    }
+
+    public int getHandValue() {
+        Hand hand = getHand();
+        return hand.getValue();
     }
 
 

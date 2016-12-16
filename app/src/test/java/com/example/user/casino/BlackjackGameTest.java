@@ -76,4 +76,13 @@ public class BlackjackGameTest {
         assertEquals(1, count);
     }
 
+    @Test
+    public void aiCanTwistTest() {
+        game.aiTwist(AI);
+        Hand hand = ((Player)AI).getHand();
+        int count = hand.cardCount();
+        assertEquals(1, count);
+
+    }
+
 }
