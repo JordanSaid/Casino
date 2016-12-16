@@ -62,7 +62,7 @@ public class BlackjackGameTest {
 
     @Test
     public void playerCanTwistTest() {
-        game.playerTwist(player);
+        game.twist(player);
         Hand hand = ((Player)player).getHand();
         int count = hand.cardCount();
         assertEquals(1, count);
@@ -70,7 +70,7 @@ public class BlackjackGameTest {
 
     @Test
     public void dealerCanTwistTest() {
-        game.playerTwist(dealer);
+        game.twist(dealer);
         Hand hand = dealer.getHand();
         int count = hand.cardCount();
         assertEquals(1, count);
@@ -78,7 +78,7 @@ public class BlackjackGameTest {
 
     @Test
     public void aiCanTwistTest() {
-        game.aiTwist(AI);
+        game.twist(AI);
         Hand hand = ((Player)AI).getHand();
         int count = hand.cardCount();
         assertEquals(1, count);

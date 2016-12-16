@@ -48,16 +48,16 @@ public class HandTest {
     @Test
     public void canPlayFirstCard() {
         hand.addCard(card);
-        Card playedCard = hand.playCard(0);
-        assertEquals("TWO of DIAMONDS", playedCard.toString());
+        Card shownCard = hand.showCard(0);
+        assertEquals("TWO of DIAMONDS", shownCard.toString());
     }
 
     @Test
     public void canPlaySecondCard() {
         hand.addCard(card);
         hand.addCard(card2);
-        Card playedCard = hand.playCard(1);
-        assertEquals("FIVE of DIAMONDS", playedCard.toString());
+        Card shownCard = hand.showCard(1);
+        assertEquals("FIVE of DIAMONDS", shownCard.toString());
     }
 
     @Test

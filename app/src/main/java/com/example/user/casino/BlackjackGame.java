@@ -76,16 +76,16 @@ public class BlackjackGame {
 
 
 
-    public Playerable findWinner() {
-        int count = 0;
-        int[] scores = new int[players.size()];
-
-        for (Playerable player: players) {
-            scores[count] = player.getHandValue();
-            count ++;
-            
-        }
-    }
+//    public Playerable findWinner() {
+//        int count = 0;
+//        int[] scores = new int[players.size()];
+//
+//        for (Playerable player: players) {
+//            scores[count] = player.getHandValue();
+//            count ++;
+//
+//        }
+//    }
 //    if (player instanceof Player)
 //    if (value )
 //            if ((a >= b) && (a >= c) && (a >= d))

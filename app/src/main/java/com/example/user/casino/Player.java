@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by user on 15/12/2016.
  */
-abstract class Player implements Playerable{
+public class Player implements Playerable{
 
     private String name;
     public Hand hand;
