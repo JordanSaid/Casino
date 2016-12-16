@@ -70,24 +70,28 @@ public class BlackjackGame {
         }
     }
 
-//    public void playRound() {
-//
-//    }
+
+    public Playerable checkWinner() {
+        int count = 0;
+        int[] scores = new int[players.size()];
+
+        for (Playerable player: players) {
+            scores[count] = player.getHandValue();
+            count ++;
+        }
+
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < scores.length; i++) {
+            if(scores[i] > max) {
+                max = scores[i];
+                }
+            }
 
 
+        if (player instanceof Dealer) {
 
-//    public Playerable findWinner() {
-//        int count = 0;
-//        int[] scores = new int[players.size()];
-//
-//        for (Playerable player: players) {
-//            scores[count] = player.getHandValue();
-//            count ++;
-//
-//        }
-//    }
-//    if (player instanceof Player)
-//    if (value )
-//            if ((a >= b) && (a >= c) && (a >= d))
+        }
+    }
+
 
 }
