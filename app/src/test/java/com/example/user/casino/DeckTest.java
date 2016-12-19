@@ -28,6 +28,7 @@ public class DeckTest {
     @Before
     public void before(){
 
+        dealer = new Dealer();
         deck = dealer.getDeck();
         spyDeck = Mockito.spy(deck);
         dealer.setDeck(spyDeck);

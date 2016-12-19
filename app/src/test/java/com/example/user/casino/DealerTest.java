@@ -18,9 +18,5 @@ public class DealerTest {
     public void before() {
         dealer = new Dealer();
     }
-
-    @Test
-    public void dealerCanBetTest() {
-        assertEquals(33, dealer.bet());
-    }
+    
 }
