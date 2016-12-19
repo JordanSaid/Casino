@@ -10,11 +10,21 @@ public class Dealer implements Playerable{
     private String name;
     private Hand hand;
     private Deckable deck;
+    private int purse;
 
     public Dealer(){
         this.name = "Dealer";
         this.hand = new Hand();
         this.deck = new Deck();
+        this.purse = 0;
+    }
+
+    public int getPurse() {
+        return this.purse;
+    }
+
+    public void setPurse(int purse) {
+        this.purse = purse;
     }
 
     public String getName() {

@@ -9,12 +9,21 @@ import java.util.Random;
 public class BlackjackGame {
     private ArrayList<Playerable> players;
     private Dealer dealer;
-    private
+    private int bet;
 
     public BlackjackGame(ArrayList<Playerable> players) {
         dealer = new Dealer();
         this.players = players;
         addPlayerToGame(dealer);
+        this.bet = 0;
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
+    }
+
+    public int getBet() {
+        return this.bet;
     }
 
     public Dealer getDealer(){
@@ -73,8 +82,14 @@ public class BlackjackGame {
 
     public Playerable checkWinner(Playerable player) {
             if (player.getHandValue() > dealer.getHandValue()) {
+                int purse = player.getPurse();
+                purse += bet;
+                player.setPurse(purse);
                 return player;
-            } return dealer;
+            }   int purse = dealer.getPurse();
+                purse += bet;
+                dealer.setPurse(purse);
+                return dealer;
     }
 
 

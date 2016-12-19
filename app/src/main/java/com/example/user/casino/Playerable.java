@@ -7,5 +7,6 @@ public interface Playerable {
     int getHandValue();
     Hand getHand();
     void addCard(Card card);
-    void
+    int getPurse();
+    void setPurse(int purse);
 }
