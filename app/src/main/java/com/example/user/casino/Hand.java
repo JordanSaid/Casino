@@ -15,6 +15,10 @@ public class Hand {
         this.hand = new ArrayList<Card>();
     }
 
+    public ArrayList<Card> getHand() {
+        return this.hand;
+    }
+
     public void addCard(Card card) {
         hand.add(card);
     }
@@ -34,8 +38,18 @@ public class Hand {
     public int getValue() {
         int count = 0;
         for (Card card: hand) {
-            count += card.getValue();
-        } return count;
+            if (card.getValue() > 10) {
+                count += 10;
+            } else if (card.getValue() == 1 && count < 11) {
+                count += 11;
+            } else count += card.getValue();
+        }
+        for (Card card : hand) {
+            if (card.getValue() == 1 && count > 21) {
+                count -= 10;
+            }
+        }
+        return count;
     }
 
 }

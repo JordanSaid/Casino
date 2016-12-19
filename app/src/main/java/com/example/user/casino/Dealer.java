@@ -9,7 +9,7 @@ public class Dealer implements Playerable{
 
     private String name;
     private Hand hand;
-    private Deck deck;
+    private Deckable deck;
 
     public Dealer(){
         this.name = "Dealer";
@@ -29,11 +29,11 @@ public class Dealer implements Playerable{
         return this.hand;
     }
 
-    public Deck getDeck() {
+    public Deckable getDeck() {
         return this.deck;
     }
 
-    public void setDeck(Deck deck) {
+    public void setDeck(Deckable deck) {
         this.deck = deck;
     }
 

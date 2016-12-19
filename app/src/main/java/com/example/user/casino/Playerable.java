@@ -5,5 +5,7 @@ package com.example.user.casino;
  */
 public interface Playerable {
     int getHandValue();
+    Hand getHand();
     void addCard(Card card);
+    void
 }

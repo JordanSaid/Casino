@@ -2,23 +2,31 @@ package com.example.user.casino;
 
 import org.junit.Test;
 import org.junit.Test.*;
-
-
 import static org.junit.Assert.*;
-
 import org.junit.Before;
-
 import java.util.ArrayList;
+import org.mockito.*;
+import static org.mockito.Mockito.*;
+
 
 /**
  * Created by user on 16/12/2016.
  */
 public class BlackjackGameTest {
+    Card card = new Card(SuitType.DIAMONDS, ValueType.TWO);
+    Card card1 = new Card(SuitType.DIAMONDS, ValueType.ACE);
+    Card card2 = new Card(SuitType.SPADES, ValueType.TEN);
+    Card card3 = new Card(SuitType.SPADES, ValueType.SEVEN);
+    Card card4 = new Card(SuitType.SPADES, ValueType.JACK);
+
+
+
     ArrayList<Playerable> players;
     Playerable player;
     Playerable AI;
     BlackjackGame game;
     Dealer dealer;
+    Deckable spyDeck;
 
     @Before
     public void before(){
@@ -27,8 +35,25 @@ public class BlackjackGameTest {
         players = new ArrayList<Playerable>();
         game = new BlackjackGame(players);
         dealer = game.getDealer();
+
+        Deckable deck = dealer.getDeck();
+        spyDeck = Mockito.spy(deck);
+        dealer.setDeck(spyDeck);
+
         game.addPlayerToGame(player);
         game.addPlayerToGame(AI);
+
+    }
+
+
+    @Test
+    public void testTakeTurnFailureStub() {
+
+
+        Mockito.when(spyDeck.dealCard()).thenReturn(card);
+
+        boolean result = game.nextTurn();
+        assertEquals(false, result);
     }
 
     @Test
@@ -38,7 +63,7 @@ public class BlackjackGameTest {
 
     @Test
     public void canDealCardToPlayersTest1() {
-        game.dealCardsToEachPlayer();
+        game.dealCards();
         Hand hand = ((Player)player).getHand();
         int count = hand.cardCount();
         assertEquals(2, count);
@@ -46,7 +71,7 @@ public class BlackjackGameTest {
 
     @Test
     public void canDealCardToPlayersTest2() {
-        game.dealCardsToEachPlayer();
+        game.dealCards();
         Hand hand = ((Player)AI).getHand();
         int count = hand.cardCount();
         assertEquals(2, count);
@@ -54,7 +79,7 @@ public class BlackjackGameTest {
 
     @Test
     public void canDealCardToDealerTest() {
-        game.dealCardsToEachPlayer();
+        game.dealCards();
         Hand hand = dealer.getHand();
         int count = hand.cardCount();
         assertEquals(2, count);
@@ -84,5 +109,15 @@ public class BlackjackGameTest {
         assertEquals(1, count);
 
     }
+
+    @Test
+    public void playerCanWinTest() {
+        game.dealCards();
+
+    }
+
+//    player 1, 4
+//    ai 5, 8
+//    dealer
 
 }

@@ -9,6 +9,7 @@ import java.util.Random;
 public class BlackjackGame {
     private ArrayList<Playerable> players;
     private Dealer dealer;
+    private
 
     public BlackjackGame(ArrayList<Playerable> players) {
         dealer = new Dealer();
@@ -24,7 +25,7 @@ public class BlackjackGame {
         players.add(player);
     }
 
-    public void dealCardsToEachPlayer() {
+    public void dealCards() {
         for (int i = 0; i < 2; i++) {
             for (Playerable player : players) {
                 Card card = dealer.dealCard();
@@ -70,37 +71,61 @@ public class BlackjackGame {
         }
     }
 
-
-    public Playerable checkWinner() {
-        int count = 0;
-        int[] scores = new int[players.size()];
-        ArrayList<Playerable> potWinners = new ArrayList<Playerable>();
-        Playerable winner = null;
-
-        for (Playerable player : players) {
-            scores[count] = player.getHandValue();
-            count++;
-        }
-
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < scores.length; i++) {
-            if (scores[i] > max) {
-                max = scores[i];
-            }
-        }
-
-        for (Playerable player : players) {
-            if (max == player.getHandValue()) {
-                potWinners.add(player);
-            }
-        }
-
-        for (Playerable player : potWinners) {
-            if (player instanceof Dealer) {
-                winner = player;
-            } else ()
-        }
+    public Playerable checkWinner(Playerable player) {
+            if (player.getHandValue() > dealer.getHandValue()) {
+                return player;
+            } return dealer;
     }
 
 
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public Playerable checkWinner() {
+//        int count = 0;
+//        int[] scores = new int[players.size()];
+//        ArrayList<Playerable> potWinners = new ArrayList<Playerable>();
+//
+//        for (Playerable player : players) {
+//            scores[count] = player.getHandValue();
+//            count++;
+//        }
+//
+//        int max = Integer.MIN_VALUE;
+//        for (int i = 0; i < scores.length; i++) {
+//            if (scores[i] > max) {
+//                max = scores[i];
+//            }
+//        }
+//
+//        for (Playerable player : players) {
+//            if (max == player.getHandValue()) {
+//                potWinners.add(player);
+//            }
+//        }
+//
+//        for (Playerable player : potWinners) {
+//            if (player instanceof Dealer) {
+//                return player;
+//            } else return potWinners.get(1);
+//        }
+//
+//    }
+

@@ -6,7 +6,7 @@ import java.util.Collections;
 /**
  * Created by user on 15/12/2016.
  */
-public class Deck {
+public class Deck implements Deckable{
 
     private ArrayList<Card> deck;
 
@@ -40,9 +40,6 @@ public class Deck {
                 deck.add(index, new Card(suit, value));index++;
             }
         }
-        // .values gives you back an array of all values in enum
-        // collections.shuffle to pass array
-        // .ordinal for enum values
     }
 
     public void shuffle(){
