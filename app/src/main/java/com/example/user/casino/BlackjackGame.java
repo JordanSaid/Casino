@@ -14,7 +14,6 @@ public class BlackjackGame {
     public BlackjackGame(ArrayList<Playerable> players) {
         dealer = new Dealer();
         this.players = players;
-        addPlayerToGame(dealer);
         this.bet = 0;
     }
 
@@ -51,9 +50,11 @@ public class BlackjackGame {
 
     public void dealCards() {
         for (int i = 0; i < 2; i++) {
+            Card card = dealer.dealCard();
+            dealer.addCard(card);
             for (Playerable player : players) {
-                Card card = dealer.dealCard();
-                player.addCard(card);
+                Card card1 = dealer.dealCard();
+                player.addCard(card1);
             }
         }
     }

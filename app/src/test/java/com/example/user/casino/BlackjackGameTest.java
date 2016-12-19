@@ -56,7 +56,7 @@ public class BlackjackGameTest {
 
     @Test
     public void gameHasPlayersTest() {
-        assertEquals(3, players.size());
+        assertEquals(2, players.size());
     }
 
     @Test
