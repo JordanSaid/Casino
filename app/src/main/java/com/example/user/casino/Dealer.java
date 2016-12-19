@@ -55,12 +55,6 @@ public class Dealer implements Playerable{
         hand.addCard(card);
     }
 
-    public int bet() {
-        Random rand = new Random();
-        int bet = rand.nextInt(50 - 10) + 10;
-        return bet;
-    }
-
     public int getHandValue() {
         Hand hand = getHand();
         return hand.getValue();

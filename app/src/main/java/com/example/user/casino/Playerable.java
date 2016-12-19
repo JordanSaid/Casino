@@ -10,4 +10,6 @@ public interface Playerable {
     int getPurse();
     void setPurse(int purse);
     int handCardCount();
+    String getName();
+    void setName(String name);
 }

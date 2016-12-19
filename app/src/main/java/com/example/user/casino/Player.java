@@ -45,12 +45,7 @@ public class Player implements Playerable{
 
     public int bet() {
         Random rand = new Random();
-        int bet = rand.nextInt(50 - 10) + 10;
-        return bet;
-    }
-
-    public int bet(int bet) {
-        purse -= bet;
+        int bet = rand.nextInt(100 - 5) + 5;
         return bet;
     }
 

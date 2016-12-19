@@ -27,6 +27,16 @@ public class BlackjackGame {
         }
     }
 
+    public void setBetAI(Playerable player) {
+        int bet = ((Player)player).bet();
+        int purse = player.getPurse();
+        purse -= bet;
+        player.setPurse(purse);
+        if (bet > 5 && bet < 100) {
+            this.bet = bet;
+        }
+    }
+
     public int getBet() {
         return this.bet;
     }
