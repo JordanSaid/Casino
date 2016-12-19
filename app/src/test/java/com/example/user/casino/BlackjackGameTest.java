@@ -18,7 +18,9 @@ public class BlackjackGameTest {
     Card card2 = new Card(SuitType.SPADES, ValueType.TEN);
     Card card3 = new Card(SuitType.SPADES, ValueType.SEVEN);
     Card card4 = new Card(SuitType.SPADES, ValueType.JACK);
-
+    Card card5 = new Card(SuitType.HEARTS, ValueType.ACE);
+    Card card6 = new Card(SuitType.CLUBS, ValueType.QUEEN);
+    Card card7 = new Card(SuitType.CLUBS, ValueType.KING);
 
 
     ArrayList<Playerable> players;
@@ -47,13 +49,9 @@ public class BlackjackGameTest {
 
 
     @Test
-    public void testTakeTurnFailureStub() {
-
-
+    public void spyDeckWorksTest() {
         Mockito.when(spyDeck.dealCard()).thenReturn(card);
-
-        boolean result = game.nextTurn();
-        assertEquals(false, result);
+        assertEquals(spyDeck.dealCard(), card);
     }
 
     @Test
@@ -107,8 +105,10 @@ public class BlackjackGameTest {
         Hand hand = ((Player)AI).getHand();
         int count = hand.cardCount();
         assertEquals(1, count);
-
     }
+
+//    @Test
+//    public void
 
     @Test
     public void playerCanWinTest() {
