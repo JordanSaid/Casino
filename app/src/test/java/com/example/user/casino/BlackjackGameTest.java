@@ -107,17 +107,36 @@ public class BlackjackGameTest {
         assertEquals(1, count);
     }
 
-//    @Test
-//    public void
-
     @Test
-    public void playerCanWinTest() {
-        game.dealCards();
-
+    public void canWinTest() {
+        player.addCard(card);
+        dealer.addCard(card1);
+        AI.addCard(card4);
+        player.addCard(card2);
+        dealer.addCard(card3);
+        AI.addCard(card5);
+        assertEquals(game.checkWinner(player), dealer);
+        assertEquals(game.checkWinner(AI), AI);
     }
 
-//    player 1, 4
-//    ai 5, 8
-//    dealer
+    @Test
+    public void canBetTest() {
+        game.setBet(player, 50);
+        assertEquals(950, player.getPurse());
+    }
+
+    @Test
+    public void canWinBetTest() {
+        player.addCard(card);
+        dealer.addCard(card1);
+        AI.addCard(card4);
+        player.addCard(card2);
+        dealer.addCard(card3);
+        AI.addCard(card5);
+        game.setBet(player, 10);
+        game.checkWinner(player);
+        assertEquals(10, dealer.getPurse());
+    }
+
 
 }

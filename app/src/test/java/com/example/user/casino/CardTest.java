@@ -33,6 +33,6 @@ public class CardTest {
     @Test
     public void convertsToString(){
 
-        assertEquals("2 of DIAMONDS", card.toString());
+        assertEquals("TWO of DIAMONDS", card.toString());
     }
 }

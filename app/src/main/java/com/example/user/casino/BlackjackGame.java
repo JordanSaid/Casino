@@ -18,8 +18,13 @@ public class BlackjackGame {
         this.bet = 0;
     }
 
-    public void setBet(int bet) {
-        this.bet = bet;
+    public void setBet(Playerable player, int bet) {
+        int purse = player.getPurse();
+        purse -= bet;
+        player.setPurse(purse);
+        if (bet > 5 && bet < 100) {
+            this.bet = bet;
+        }
     }
 
     public int getBet() {

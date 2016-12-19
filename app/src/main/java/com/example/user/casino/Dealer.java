@@ -66,7 +66,7 @@ public class Dealer implements Playerable{
         return hand.getValue();
     }
 
-    public int cardCount() {
+    public int handCardCount() {
         Hand hand = getHand();
         return hand.cardCount();
     }

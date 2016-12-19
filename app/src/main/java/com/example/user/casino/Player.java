@@ -14,13 +14,13 @@ public class Player implements Playerable{
     public Player(){
         this.name = "Player";
         this.hand = new Hand();
-        int purse = 1000;
+        this.purse = 1000;
     }
 
     public Player(String name){
         this.name = name;
         this.hand = new Hand();
-        int purse = 1000;
+        this.purse = 1000;
     }
 
     public String getName() {
@@ -54,10 +54,6 @@ public class Player implements Playerable{
         return bet;
     }
 
-    public void win(int pot) {
-        purse += pot;
-    }
-
     public void addCard(Card card) {
         hand.addCard(card);
     }
@@ -67,7 +63,7 @@ public class Player implements Playerable{
         return hand.getValue();
     }
 
-    public int cardCount() {
+    public int handCardCount() {
         Hand hand = getHand();
         return hand.cardCount();
     }

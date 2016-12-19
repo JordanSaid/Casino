@@ -16,7 +16,6 @@ public class HandTest {
     Card card;
     Card card2;
     Hand hand;
-    UnshuffledDeck unshuffledDeck;
 
     @Before
     public void before(){
@@ -24,7 +23,6 @@ public class HandTest {
         card = new Card(SuitType.DIAMONDS, ValueType.TWO);
         card2 = new Card(SuitType.DIAMONDS, ValueType.FIVE);
         hand = new Hand();
-        unshuffledDeck = new UnshuffledDeck();
     }
 
     @Test

@@ -9,5 +9,5 @@ public interface Playerable {
     void addCard(Card card);
     int getPurse();
     void setPurse(int purse);
-    int cardCount();
+    int handCardCount();
 }

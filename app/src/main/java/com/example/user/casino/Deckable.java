@@ -6,4 +6,6 @@ package com.example.user.casino;
 public interface Deckable {
     Card dealCard();
     void fillDeck();
+    int cardCount();
+    void addCard(Card card);
 }
