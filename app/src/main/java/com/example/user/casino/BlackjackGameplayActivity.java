@@ -46,9 +46,10 @@ public class BlackjackGameplayActivity extends AppCompatActivity {
         String playerName = extras.getString("playerNameText");
         player = new Player(playerName);
 
-        playerHand = (TextView) findViewById(R.id.playerHand);
+        playerHand = (TextView) findViewById(R.id.playerHand1);
         playerTotal = (TextView) findViewById(R.id.playerTotal);
-        dealerHand = (TextView) findViewById(R.id.dealerHand);
+
+        dealerHand = (TextView) findViewById(R.id.dealerHand1);
         dealerTotal = (TextView) findViewById(R.id.dealerTotal);
         message = (TextView) findViewById(R.id.message);
 
@@ -65,12 +66,12 @@ public class BlackjackGameplayActivity extends AppCompatActivity {
         dealerHandValueString = Integer.toString(dealerHandValue);
 
 
-        final String playerHand1 = player.getName() + "'s hand: " + player.cardToString(0) + " " + player.cardToString(1);
+        final String playerHand1 = player.getName() + "'s hand:" + "\n" + player.cardToString(0) + "\n " + player.cardToString(1);
 
         playerHand.setText(playerHand1);
         playerTotal.setText(playerHandValueString);
 
-        String dealerHand1 = "Dealer's hand: " + dealer.cardToString(0);
+        final String dealerHand1 = "Dealer's hand: "  + "\n" + dealer.cardToString(0);
         dealerHand.setText(dealerHand1);
 
         if (blackjackGame.earlyWinner(player) != null) {
@@ -90,8 +91,18 @@ public class BlackjackGameplayActivity extends AppCompatActivity {
                 playerHandValueString = Integer.toString(playerHandValue);
                 playerTotal.setText(playerHandValueString);
 
-                String playerHand2 = playerHand1 + " " + player.cardToString(2);
-                playerHand.setText(playerHand2);
+
+
+                if (player.handCardCount() == 5) {
+                    String playerHand4 = playerHand1 + "\n" + player.cardToString(2) + "\n" + player.cardToString(3) + "\n" + player.cardToString(4);
+                    playerHand.setText(playerHand4);
+                } else if (player.handCardCount() == 4) {
+                    String playerHand3 = playerHand1 + "\n" + player.cardToString(2) + "\n" + player.cardToString(3);
+                    playerHand.setText(playerHand3);
+                } else if (player.handCardCount() == 3) {
+                    String playerHand2 = playerHand1 + "\n" + player.cardToString(2);
+                    playerHand.setText(playerHand2);
+                }
 
                 if (blackjackGame.earlyWinner(player) != null) {
                     message.setText(blackjackGame.earlyWinner(player));
@@ -116,8 +127,18 @@ public class BlackjackGameplayActivity extends AppCompatActivity {
                 dealerHandValueString = Integer.toString(dealerHandValue);
                 dealerTotal.setText(dealerHandValueString);
 
-//                String dealerHand2 = dealerHand1 + " " + dealer.cardToString(1) + " " + dealer.cardToString(2);
-//                dealerHand.setText(dealerHand2);
+                if (dealer.handCardCount() == 5) {
+                    String dealerHand4 = dealerHand1 + "\n" + dealer.cardToString(1) + "\n" + dealer.cardToString(2) + "\n" + dealer.cardToString(3) + "\n" + dealer.cardToString(4);
+                    dealerHand.setText(dealerHand4);
+                } else if (dealer.handCardCount() == 4) {
+                    String dealerHand3 = dealerHand1 + "\n" + dealer.cardToString(1) + "\n" + dealer.cardToString(2) + "\n" + dealer.cardToString(3);
+                    dealerHand.setText(dealerHand3);
+                } else if (dealer.handCardCount() == 3) {
+                    String dealerHand2 = dealerHand1 + "\n" + dealer.cardToString(1) + "\n" + dealer.cardToString(2);
+                    dealerHand.setText(dealerHand2);
+                }
+
+
 
                 if (blackjackGame.earlyWinner(player) != null) {
                     message.setText(blackjackGame.earlyWinner(player));

@@ -129,7 +129,7 @@ public class BlackjackGame {
 
     public String endOfGameWin(Playerable player) {
         if (checkWinner(player) == player ) {
-            return player.getName() + "wins with: " + player.getHandValue();
+            return player.getName() + " wins with: " + player.getHandValue();
         } else if (checkWinner(player) == dealer) {
             return "Dealer wins with: " + dealer.getHandValue();
         } return null;
