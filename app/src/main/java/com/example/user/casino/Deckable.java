@@ -8,4 +8,5 @@ public interface Deckable {
     void fillDeck();
     int cardCount();
     void addCard(Card card);
+    Card checkCard(int index);
 }

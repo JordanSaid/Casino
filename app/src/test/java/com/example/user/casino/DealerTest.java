@@ -18,5 +18,5 @@ public class DealerTest {
     public void before() {
         dealer = new Dealer();
     }
-    
+
 }

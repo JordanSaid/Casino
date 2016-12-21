@@ -20,7 +20,11 @@ public class Deck implements Deckable{
 
     public void addCard(Card card){
         deck.add(card);
+    }
 
+    public Card checkCard(int index) {
+        Card card = deck.get(index);
+        return card;
     }
 
     public Card dealCard(){

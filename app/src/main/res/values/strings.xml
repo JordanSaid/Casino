@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Casino</string>
+    <string name="startGame">Start the game!</string>
+    <string name="twist">Twist</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.user.casino;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -63,6 +64,18 @@ public class Dealer implements Playerable{
     public int handCardCount() {
         Hand hand = getHand();
         return hand.cardCount();
+    }
+
+    public String cardToString(int index) {
+        Hand hand = getHand();
+        Card card = hand.showCard(index);
+        return card.toString();
+    }
+
+    public int cardCount() {
+        Hand hand = getHand();
+        ArrayList<Card> cards = hand.getHand();
+        return cards.size();
     }
 
 

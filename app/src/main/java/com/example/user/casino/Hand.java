@@ -1,6 +1,7 @@
 package com.example.user.casino;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by user on 15/12/2016.
@@ -10,7 +11,7 @@ public class Hand {
 
     private ArrayList<Card> hand;
 
-    public Hand(){
+    public Hand() {
 
         this.hand = new ArrayList<Card>();
     }
@@ -27,8 +28,8 @@ public class Hand {
         hand.clear();
     }
 
-    public Card showCard(int index){
-        return (Card)hand.get(index);
+    public Card showCard(int index) {
+        return (Card) hand.get(index);
     }
 
     public int cardCount() {
@@ -37,7 +38,7 @@ public class Hand {
 
     public int getValue() {
         int count = 0;
-        for (Card card: hand) {
+        for (Card card : hand) {
             if (card.getValue() > 10) {
                 count += 10;
             } else if (card.getValue() == 1 && count < 11) {
@@ -51,5 +52,4 @@ public class Hand {
         }
         return count;
     }
-
 }

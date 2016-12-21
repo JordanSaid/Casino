@@ -12,4 +12,6 @@ public interface Playerable {
     int handCardCount();
     String getName();
     void setName(String name);
+    String cardToString(int index);
+    int cardCount();
 }
