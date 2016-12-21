@@ -28,6 +28,11 @@ public class Dealer implements Playerable{
         this.purse = purse;
     }
 
+    public String purseToString() {
+        int purse = getPurse();
+        return Integer.toString(purse);
+    }
+
     public String getName() {
         return this.name;
     }

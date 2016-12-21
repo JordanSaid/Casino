@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -16,6 +19,7 @@ import java.util.ArrayList;
  */
 public class BlackjackMainActivity extends AppCompatActivity{
     EditText playerName;
+//    EditText playerBet;
     Button startGame;
 
 
@@ -27,7 +31,10 @@ public class BlackjackMainActivity extends AppCompatActivity{
         setContentView(R.layout.activityblackjackhome);
 
         startGame = (Button) findViewById(R.id.startGame_button);
+
         playerName = (EditText) findViewById(R.id.playerName);
+//        playerBet = (EditText) findViewById(R.id.playerBet);
+
 
 
         startGame.setOnClickListener(new View.OnClickListener() {
@@ -35,11 +42,13 @@ public class BlackjackMainActivity extends AppCompatActivity{
             public void onClick(View view) {
                 android.util.Log.d("BlackJack", "Push button clicked");
                 String playerNameText = playerName.getText().toString();
+//                String playerBetText = playerBet.getText().toString();
 
                 Log.d("Blackjack", "PlayerName: " + playerNameText);
 
                 Intent intent = new Intent(BlackjackMainActivity.this, BlackjackGameplayActivity.class);
                 intent.putExtra("playerNameText", playerNameText);
+//                intent.putExtra("playerBetText", playerBetText);
 
 
                 startActivity(intent);

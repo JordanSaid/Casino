@@ -25,16 +25,16 @@ public class BlackjackGame {
             this.bet = bet;
         }
     }
-
-    public void setBetAI(Playerable player) {
-        int bet = ((Player)player).bet();
-        int purse = player.getPurse();
-        purse -= bet;
-        player.setPurse(purse);
-        if (bet > 5 && bet < 100) {
-            this.bet = bet;
-        }
-    }
+//
+//    public void setBetAI(Playerable player) {
+//        int bet = ((Player)player).bet();
+//        int purse = player.getPurse();
+//        purse -= bet;
+//        player.setPurse(purse);
+//        if (bet > 5 && bet < 100) {
+//            this.bet = bet;
+//        }
+//    }
 
 
     public int getBet() {
@@ -76,28 +76,28 @@ public class BlackjackGame {
         player.addCard(card);
     }
 
-    public void aiWillTwist(Playerable player) {
-        int value = player.getHandValue();
-        if (value < 12) {
-            Card card = ((Dealer)dealer).dealCard();
-            player.addCard(card);
-
-        } else if (value <= 15) {
-            Random rand = new Random();
-            int willTwist = rand.nextInt(2) + 1;
-            if (willTwist == 1) {
-                Card card = ((Dealer)dealer).dealCard();
-                player.addCard(card);
-            }
-        } else if(value <= 17) {
-            Random rand = new Random();
-            int willTwist = rand.nextInt(4) + 1;
-            if (willTwist == 1) {
-                Card card = ((Dealer)dealer).dealCard();
-                player.addCard(card);
-            }
-        }
-    }
+//    public void aiWillTwist(Playerable player) {
+//        int value = player.getHandValue();
+//        if (value < 12) {
+//            Card card = ((Dealer)dealer).dealCard();
+//            player.addCard(card);
+//
+//        } else if (value <= 15) {
+//            Random rand = new Random();
+//            int willTwist = rand.nextInt(2) + 1;
+//            if (willTwist == 1) {
+//                Card card = ((Dealer)dealer).dealCard();
+//                player.addCard(card);
+//            }
+//        } else if(value <= 17) {
+//            Random rand = new Random();
+//            int willTwist = rand.nextInt(4) + 1;
+//            if (willTwist == 1) {
+//                Card card = ((Dealer)dealer).dealCard();
+//                player.addCard(card);
+//            }
+//        }
+//    }
 
     public void dealerWillTwist() {
         Hand hand = dealer.getHand();
@@ -112,15 +112,14 @@ public class BlackjackGame {
         if (player.getHandValue() > dealer.getHandValue() && player.getHandValue() < 22) {
             int purse = player.getPurse();
             purse += bet;
+            purse += bet;
             player.setPurse(purse);
             return player;
         } else if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() < 22) {
-            int purse = dealer.getPurse();
-            purse += bet;
-            dealer.setPurse(purse);
             return dealer;
         } else if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() > 22) {
             int purse = player.getPurse();
+            purse += bet;
             purse += bet;
             player.setPurse(purse);
             return player;
@@ -152,10 +151,22 @@ public class BlackjackGame {
             } else return player.getName() + " went bust, Dealer wins";
         } else if (earlyWin(player) && checkWinner(player) == player) {
             if (player.getHandValue() == 21) {
+                int purse = player.getPurse();
+                purse += bet;
+                purse += bet;
+                player.setPurse(purse);
                 return player.getName() + " wins with 21";
             } else if (player.cardCount() > 4) {
+                int purse = player.getPurse();
+                purse += bet;
+                purse += bet;
+                player.setPurse(purse);
                 return player.getName() + " wins with 5 card trick";
-            } else return "Dealer went bust, " + player.getName() + " wins";
+            } else { int purse = player.getPurse();
+                purse += bet;
+                purse += bet;
+                player.setPurse(purse);
+                return "Dealer went bust, " + player.getName() + " wins";}
         }return null;
     }
 
@@ -167,48 +178,3 @@ public class BlackjackGame {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public Playerable checkWinner() {
-//        int count = 0;
-//        int[] scores = new int[players.size()];
-//        ArrayList<Playerable> potWinners = new ArrayList<Playerable>();
-//
-//        for (Playerable player : players) {
-//            scores[count] = player.getHandValue();
-//            count++;
-//        }
-//
-//        int max = Integer.MIN_VALUE;
-//        for (int i = 0; i < scores.length; i++) {
-//            if (scores[i] > max) {
-//                max = scores[i];
-//            }
-//        }
-//
-//        for (Playerable player : players) {
-//            if (max == player.getHandValue()) {
-//                potWinners.add(player);
-//            }
-//        }
-//
-//        for (Playerable player : potWinners) {
-//            if (player instanceof Dealer) {
-//                return player;
-//            } else return potWinners.get(1);
-//        }
-//
-//    }
-

@@ -40,6 +40,11 @@ public class Player implements Playerable{
         return this.purse;
     }
 
+    public String purseToString() {
+        int purse = getPurse();
+        return Integer.toString(purse);
+    }
+
     public void setPurse(int purse) {
         this.purse = purse;
     }

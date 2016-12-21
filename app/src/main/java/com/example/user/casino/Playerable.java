@@ -9,9 +9,11 @@ public interface Playerable {
     void addCard(Card card);
     int getPurse();
     void setPurse(int purse);
+    String purseToString();
     int handCardCount();
     String getName();
     void setName(String name);
     String cardToString(int index);
     int cardCount();
+
 }

@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <EditText
         android:id="@+id/playerName"
         android:hint="Write your name here"
@@ -12,6 +13,16 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <!--<EditText-->
+        <!--android:id="@+id/playerBet"-->
+        <!--android:hint="Place bet from 5 to 100"-->
+        <!--android:textSize="30dp"-->
+        <!--android:textAlignment="center"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <Button
         android:text="@string/startGame"
